@@ -1,6 +1,6 @@
 # bbconsole
 
-A Clojure library to trigger actions on a Backbase portal
+A Clojure library to trigger actions on a Backbase portal. From an idea of [`@tonvanbart`](https://github.com/tonvanbart).
 
 ## Usage
 
@@ -40,6 +40,6 @@ Available commands:
 
 ## License
 
-Copyright © 2013 FIXME
+Copyright © 2013 Carlo Sciolla
 
 Distributed under the Eclipse Public License, the same as Clojure.
