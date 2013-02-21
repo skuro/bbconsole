@@ -1,4 +1,5 @@
 (ns bbconsole.core
+  (:gen-class)
   (:use bbconsole.commands))
 
 (def intro

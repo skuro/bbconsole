@@ -15,9 +15,6 @@
   (println "Done.")
   (System/exit 0))
 
-(defn dummy [& _]
-  (println "Sample calculation, 1 + 2 =" (+ 1 2)))
-
 (defn request-param [k in]
   (swap! portal-request assoc k (string-input in)))
 
@@ -38,3 +35,18 @@
 
 (defn inspect []
   (pp/pprint @portal-request))
+
+(defn help []
+  (println "Available commands:")
+  (let [usage { "(quit)" "stops the program and exits. C-c will work also"
+                "(select-portal name)" "selects a portal called name. the portal must exist"
+                "(select-host host-or-ip)" "selects the host to operate on [default: localhost]"
+                "(create-portal name)" "creates a new portal with the given name"
+                "(inspect)" "dumps the current operation context"
+                "(help)" "prints this help text"}
+        echo (fn [[usage text]]
+               (println (str "\t" usage ))
+               (println (str "\t" text))
+               (println))]
+    (dorun
+        (map echo usage))))
