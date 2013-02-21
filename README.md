@@ -11,7 +11,7 @@ Directly from the sources, run
 Alternatively, the same can be achieved by
 
     lein compile
-    java -jar target bbconsole-0.1.0-SNAPSHOT-standalone.jar
+    java -jar target/bbconsole-0.1.0-SNAPSHOT-standalone.jar
 
 ## Available commands
 
