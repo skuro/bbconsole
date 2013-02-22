@@ -1,5 +1,6 @@
 (ns bbconsole.commands
-  (:require [clojure.pprint :as pp]))
+  (:require [clojure.pprint :as pp]
+            [bbconsole.rest.portal :as ptl]))
 
 (def portal-request (atom {:host "localhost"
                            :port "7777"
@@ -29,9 +30,9 @@
     (println (str "No portal named '" portal "' found on the current host"))))
 
 (defn create-portal [portal]
-  (swap! portal-request #(assoc % :portals (conj (:portals %) portal)))
-  (println (str "Ok, created portal"))
-  (select-portal portal))
+  (swap! portal-request #(assoc % :portal (str portal)))
+  (ptl/create-portal @portal-request)
+  (swap! portal-request #(assoc % :portals (conj (:portals %) portal))))
 
 (defn inspect []
   (pp/pprint @portal-request))
